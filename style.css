@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    background: #1C1C1C;
+    
+
+}
+
+#generatorCont {
+    background: #1F2937;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-top: 35px;
+    padding-left: 52px;
+    padding-right: 52px;
+    /* padding: 115px 144px  */
+}
+
+#title {
+    font-family: "Karla";
+    color: white;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.025em;
+    width: 374px;
+    height: 80px;
+}
+#title > span {
+    color: #4ADF86
+}
+#subTitle {
+    color: #D5D4D8;
+
+}
+
+button {
+    width: 191px;
+    height: 42px;
+    font-weight: 500;
+    font-size: 16px;
+    background: #10B981;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    margin-top: 51px;
+}
+#passContainer {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 115px;
+
+}
+hr {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    width: 446px;
+    height: 0px;
+    border: 1px solid #2F3E53;
+}
+.passwordCont {
+    background: #273549;
+    width: 211px;
+    height: 39px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #55F991;
+    text-indent: 50px;
+  
+}
+
