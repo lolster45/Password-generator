@@ -1,8 +1,6 @@
 body {
     margin: 0;
     background: #1C1C1C;
-    
-
 }
 
 #generatorCont {
@@ -32,7 +30,6 @@ body {
 }
 #subTitle {
     color: #D5D4D8;
-
 }
 
 button {
@@ -46,12 +43,13 @@ button {
     border: none;
     margin-top: 51px;
 }
+
 #passContainer {
     display: flex;
     gap: 24px;
     margin-bottom: 115px;
-
 }
+
 hr {
     margin-top: 35px;
     margin-bottom: 35px;
@@ -59,6 +57,7 @@ hr {
     height: 0px;
     border: 1px solid #2F3E53;
 }
+
 .passwordCont {
     background: #273549;
     width: 211px;
@@ -68,6 +67,5 @@ hr {
     font-size: 16px;
     color: #55F991;
     text-indent: 50px;
-  
 }
 

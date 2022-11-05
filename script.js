@@ -6,8 +6,6 @@ let passOne = document.getElementById("passwordOne")
 let passTwo = document.getElementById("passwordTwo")
 let genBtn = document.getElementById("generateBtn")
 
-
-
 genBtn.addEventListener("click", activateGenerator);
 
 function activateGenerator() {
@@ -18,7 +16,6 @@ function activateGenerator() {
 
 function generatePasswordOne() {
     let passOneArray = []
-    
     for (let i = 0; i <=14; i++) {
         passOneArray.push(characters[Math.floor(Math.random() * characters.length)]);
         if (passOneArray.length >=15) {
@@ -29,9 +26,7 @@ function generatePasswordOne() {
 }
 
 function generatePasswordTwo() {
-    
     let passTwoArray = []
-    
     for (let i = 0; i <=14; i++) {
         passTwoArray.push(characters[Math.floor(Math.random() * characters.length)]);
         if (passTwoArray.length >=15) {
@@ -50,19 +45,3 @@ function clipboardOne (event) {
         alert("Copied to Clipboard!!")
     }
 }
-
-
-
-// JUST SOME OF MY OWN CODE BUT FOUND BETTER ALGORITHM.
-// function clipboardOne() {
-//     if (passOne.textContent) {
-//         navigator.clipboard.writeText(passOne.textContent);
-//         alert("Copied to Clipboard!!")
-//     }
-// }
-// function clipboardTwo() {
-//     if (passOne.textContent) {
-//         navigator.clipboard.writeText(passOne.textContent);
-//         alert("Copied to Clipboard!!")
-//     }
-// }
