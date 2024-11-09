@@ -50,12 +50,19 @@ function copyIntoClipBoard (e) {
     }
 }
 
+function updateDisplay() {
+    displayLength.textContent = passwordLength; 
+}
+
 function change(e) {
-    const val = e.target.textContent;
-    if(val === '+') {
-        displayLength.textContent = passwordLength += 1
+    const action = e.target.dataset.action;
+
+    if(action === 'increase' && passwordLength < 35) {
+        passwordLength += 1
     }
-    if(val === '-') {
-        displayLength.textContent = passwordLength -= 1
+    if(action === 'decrease' && passwordLength > 0) {
+        passwordLength -= 1
     }
+
+    updateDisplay();
 }
