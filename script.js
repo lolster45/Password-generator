@@ -2,7 +2,6 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 "/"];
 // password length is 15 characters
 
-
 //Variables...
 let passOne = document.getElementById("pass-one-display");
 let clipBoardOne = document.getElementById('password-one');
