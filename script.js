@@ -2,45 +2,18 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 "/"];
 // password length is 15 characters
 
-//Variables...
-let passOne = document.getElementById("pass-one-display");
-let clipBoardOne = document.getElementById('password-one');
-
-let passTwo = document.getElementById("pass-two-display");
-let clipBoardTwo = document.getElementById('password-two');
-
-let genBtn = document.getElementById("generate-btn");
-
-let increaseBtn = document.getElementById('increase');
-let decreaseBtn = document.getElementById('decrease');
-
-let displayLength = document.getElementById('length-display');
-let passwordLength = 15;
-
-//Displaying the length of the password on the DOM...
-displayLength.textContent = passwordLength;
 
 
-genBtn.addEventListener("click", retrievePasswords);
-
-clipBoardOne.addEventListener("click", copyIntoClipBoard);
-
-clipBoardTwo.addEventListener("click", copyIntoClipBoard);
-
-increaseBtn.addEventListener("click", change)
-decreaseBtn.addEventListener("click", change)
-
-function retrievePasswords () {
-    passOne.textContent = generatePassword();
-    passTwo.textContent = generatePassword();
+function retrievePasswords (object, characters, passOne, passTwo) {
+    console.log('retrive function activated...')
+    passOne.textContent = generatePassword(object.passwordLength, characters);
+    passTwo.textContent = generatePassword(object.passwordLength, characters);
 }
 
-function generatePassword() {
-    let passOneArray = []
-    for (let i = 0; i < passwordLength; i++) {
-        passOneArray.push(characters[Math.floor(Math.random() * characters.length)]);
-    }
-    return passOneArray.join("");
+function generatePassword(length, characters) {
+    return Array.from({length}, () => 
+        characters[Math.floor(Math.random() * characters.length)]
+    ).join('');
 }
 
 function copyIntoClipBoard (e) {
@@ -50,19 +23,63 @@ function copyIntoClipBoard (e) {
     }
 }
 
-function updateDisplay() {
-    displayLength.textContent = passwordLength; 
+function updateDisplay(displayLength, object) {
+    displayLength.textContent = String(object.passwordLength); 
 }
 
-function change(e) {
+function changePassWordLength(e, object, displayLength) {
     const action = e.target.dataset.action;
 
-    if(action === 'increase' && passwordLength < 35) {
-        passwordLength += 1
+    if(action === 'increase' && object.passwordLength < 35) {
+        object.passwordLength += 1
     }
-    if(action === 'decrease' && passwordLength > 0) {
-        passwordLength -= 1
+    if(action === 'decrease' && object.passwordLength > 0) {
+        object.passwordLength -= 1
     }
 
-    updateDisplay();
+    updateDisplay(displayLength, object);
 }
+
+
+function Init() {
+    //Variables...
+    let passOne = document.getElementById("pass-one-display");
+    let clipBoardOne = document.getElementById('password-one');
+    
+    let passTwo = document.getElementById("pass-two-display");
+    let clipBoardTwo = document.getElementById('password-two');
+    
+    let genBtn = document.getElementById("generate-btn");
+    
+    let increaseBtn = document.getElementById('increase');
+    let decreaseBtn = document.getElementById('decrease');
+    
+    let displayLength = document.getElementById('length-display');
+
+    let object = {
+        passwordLength: 15
+    };
+
+    updateDisplay(displayLength, object);
+
+
+    genBtn.addEventListener("click", () => {
+        retrievePasswords(object, characters, passOne, passTwo)
+    });
+    clipBoardOne.addEventListener("click", copyIntoClipBoard);
+    clipBoardTwo.addEventListener("click", copyIntoClipBoard);
+    increaseBtn.addEventListener("click", (e) => {
+        changePassWordLength(e, object, displayLength)
+    });
+    decreaseBtn.addEventListener("click", (e) => {
+        changePassWordLength(e, object, displayLength)
+    });
+
+};
+
+
+document.addEventListener('DOMContentLoaded', Init)
+
+
+
+module.exports = {generatePassword, changePassWordLength, updateDisplay, changePassWordLength}
